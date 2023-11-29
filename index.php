@@ -11,7 +11,7 @@
     $username = "root";
     $pass = "";
     $database = "my_sia4fun";
-    $host = "https://sia4fun.altervista.org";
+    $host = "localhost";
 
 
     try {

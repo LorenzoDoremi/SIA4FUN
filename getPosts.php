@@ -1,15 +1,18 @@
 <style>
     .post{
         position: relative;
-        top:200px;
-        right: 1500px;
-        border: 2px solid black;
+       
+        border: 2px solid rgb(240,240,240);
         border-radius: 5px 5px 5px 5px;
-        margin: 5px; 
+        padding: 20px;
+        margin: 20px; 
     }
     .box p{
         display: inline-block;
-        border: 2px solid red;
+        background: rgb(240,240,240);
+        border: 2px solid rgb(230,230,230);
+        padding: 20px;
+        border-radius: 5px;
     }
 
 </style>
@@ -19,7 +22,7 @@ require("connessione.php");
 $prezzoMax = 200;
 $prezzoMin = 0;
 // PREPARO LA MIA QUERY. QUESTA TECNICA PREVIENE L'HACKING BASE!
-$query = $connessione->prepare('SELECT post.contenuto,utente.nome,utente.id FROM post,utente WHERE post.id=utente.id');
+$query = $connessione->prepare('SELECT post.contenuto,utente.nome,utente.id FROM post,utente WHERE post.idutente=utente.id');
 // sostituisco i punti di domanda con la variabile q
 // dd è il tipo. d è double. s si usa per parole. i numeri interi. 
 // $query->bind_param("dd", $prezzoMin, $prezzoMax);

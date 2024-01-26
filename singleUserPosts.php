@@ -3,14 +3,14 @@ require("connessione.php");
 
 
 
-
+$utente = $_GET["utente"];
 $prezzoMax = 200;
 $prezzoMin = 0;
 // PREPARO LA MIA QUERY. QUESTA TECNICA PREVIENE L'HACKING BASE!
-$query = $connessione->prepare('SELECT post.contenuto,utente.nome,utente.id FROM post,utente WHERE utente.nome=\'alessandro\' AND post.id=utente.id');
+$query = $connessione->prepare('SELECT post.contenuto,utente.nome,utente.id FROM post,utente WHERE utente.id=? AND post.id=utente.id');
 // sostituisco i punti di domanda con la variabile q
 // dd è il tipo. d è double. s si usa per parole. i numeri interi. 
-// $query->bind_param("dd", $prezzoMin, $prezzoMax);
+// $query->bind_param("s", $utente);
 $query->execute();
 $risultato = $query->get_result();
 

@@ -1,8 +1,8 @@
 <?php 
 // qua dovrai mettere i dati del tuo database.
 $username = "root";
-$pass = "";
-$database = "my_sia4fun";
+$pass = "Napoli6996";
+$database = "social4sia";
 $host = "localhost";
 $connessione = mysqli_connect($host, $username, $pass, $database);
 /*

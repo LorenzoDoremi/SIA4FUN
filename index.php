@@ -34,6 +34,9 @@
         border: 2px solid rgb(70,0,218);
         border-radius: 12px;
     }
+    a:hover{
+      color: rgb(70,0,218);
+    }
 </style>
 <!doctype html>
 <html id="html" lang="en">

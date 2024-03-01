@@ -1,28 +1,24 @@
-<style>
-    
-</style>
-<html id="html">
-    <head>
-        <title>Post</title>
-        <?php require ("head.html")?>
-    </head>
-        <body>
-        <div class="container-fluid"> 
-        <?php require("navigazione.html"); ?>   
-        <div class="container-fluid" id="content">
-        <div>
-            <form action="inseriscipost.php" method="POST">
-                <label for="idutente">id_utente</label>
-                <input type="text" name="id_utente" value="" id="idutente" />
+<?php
+require("connessione.php");
 
-                <label for="contenuto">dicci cosa pensi:</label>
-                <input type="text" name="contenuto" value="" id="contenuto" />
 
-                <label for="allegato">allegato</label>
-                <input type="text" name="allegato" value="" id="allegato" />
 
-                <input type="submit" value="INVIA">
-            </form>
-        </div>
-    </body>
-</html>
+$id = $_POST["id_utente"];
+echo "<br>";
+$contenuto = $_POST["contenuto"];
+echo "<br>";
+$allegato = $_POST["allegato"];
+echo "<br>";
+
+
+// PREPARO LA MIA QUERY. QUESTA TECNICA PREVIENE L'HACKING BASE!
+$query = $connessione->prepare("INSERT INTO post (contenuto,allegato,numerodilike)
+VALUES (?,?,'0')");
+// sostituisco i punti di domanda con la variabile q
+// dd è il tipo. d è double. s si usa per parole. i numeri interi. 
+$query->bind_param("ss",$contenuto,$allegato);
+$query->execute();
+
+
+header("location: /timerr/index.php")
+?>

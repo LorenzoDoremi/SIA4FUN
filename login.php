@@ -9,7 +9,10 @@
     max-width: 400px;
     position: relative;
     left: 750px;
-    top: 300px
+    top: 200px
+  }
+  #login label{
+    font-size:20px;
   }
   #html[data-bs-theme="dark"] #login form{
   background-color: rgb(33,37,41);
@@ -57,16 +60,23 @@
     <?php require("navigazione.html"); ?>    
     
     <div id="login">
-      <form action="verifica.php" method="post">
-        <h1>Accesso</h1>
-        <label class="l842387" for="username">Nome utente:</label>
-        <input type="text" id="username" name="username" required>
-        <label class="l842387" for="password">Password:</label>
-        <input type="password" id="password" name="password" required>
-        <input  type="submit" value="Accedi" href="">
+      <form action="registrazione.php" method="post">
+        <label for="HTML">Nickname</label><br>
+        <input type="text" value="" name="nickname"><br><br>
+        <label for="html">Name</label><br>
+        <input type="text" value="" name="nome"><br><br>
+        <label for="html">Surname</label><br>
+        <input type="text" value="" name="cognome"><br><br>
+        <label for="html">E-Mail</label><br>
+        <input type="email" value="" name="e-mail"><br><br>
+        <label for="html">Password</label><br>
+        <input type="password" value="" name="password"><br><br>
+        <input type="submit">
       </form>
     </div>
 
 </body>
 <?php require("footer.html") ?>
 </html>
+<?php require("registrazione.php") ?>
+

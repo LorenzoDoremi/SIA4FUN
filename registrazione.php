@@ -1,9 +1,6 @@
 <?php
+require("connessione.php"); 
 
-require("connessione.php");
-
-
-    
 if($_SERVER["REQUEST_METHOD"] == "POST") {
     $name = $_POST["nome"]; 
     $surname =  $_POST["cognome"];      
@@ -29,26 +26,14 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
         echo "<a href=\"signup.html\"> torna alla registrazione </a>";
     }
     else {
-        
         $query = $connessione->prepare('INSERT INTO utente (nickname, nome,cognome,email,password) VALUES (?,?,?,?,?)');
         $query->bind_param("sssss",$nickname, $name,$surname,$email, $password);
         $query->execute();
 
         echo "registrazione avvenuta con successo!";
-        echo "<a href=\"signup.html\"> divertiti con Timerr! </a>";
+        echo "<a href=\"index.php\"> divertiti con Timerr! </a>";
 
     }
-    
-
-
     //
-   
-    
-
-
-}	
-    
+}	  
 ?>
-
-
-

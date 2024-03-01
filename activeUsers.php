@@ -12,4 +12,4 @@ function addActiveUser(&$users, $row) {
         $users[] = $row;
     }
 }
-
+?>
